@@ -1,4 +1,3 @@
-{{-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,21 +13,27 @@
     <div class="full-size-center">
         <div class="box tall">
             <h1>Maak uw bestelling</h1>
+            <p>Order voor tafel {{ $table_order->number }}</p>
 
-            <form action="" method="">
-                @csrf
-                <div class="form-group">
-                    <label for="table_number">Tafel nummer</label>
-                    <input type="text" name="table_number" id="table_number" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary">Bestelling plaatsen</button>
-            </form>
-            <h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1><h1>kasjdkas</h1>
+            {{-- radio input with categories  --}}
+            <input checked="checked" type="radio" id="all" name="category" value="all">
+            <label for="all">Alles</label>
+            @foreach($categories as $category)
+                <input type="radio" id="{{ $category->id }}" name="category" value="{{ $category->id }}">
+                <label for="{{ $category->id }}">{{ $category->name }}</label>
+            @endforeach
+
+            
+            
         </div>
     </div>
 </body>
-</html> --}}
-
-
-
-test
+{{-- <script>
+    // send user to order.order route on radio change
+    document.querySelectorAll('input[name="category"]').forEach((input) => {
+        input.addEventListener('change', (event) => {
+            window.location.href = '/order//' + event.target.value;
+        });
+    });
+</script> --}}
+</html>

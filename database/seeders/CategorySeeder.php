@@ -25,7 +25,7 @@ class CategorySeeder extends Seeder
             'name' => 'Nagerecht',
         ]);
         Category::create([
-            'name' => 'Drinks',
+            'name' => 'Drinken',
         ]);
     }
 }

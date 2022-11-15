@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Table;
 use App\Models\Consumable;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -30,8 +31,13 @@ class OrderController extends Controller
 
     public function order($table)
     {
-        $table = Table::where('id', $table);
+        $table_order = Table::find($table);
         $consumables = Consumable::all();
-        return view('order.order');
+        $categories = Category::all();
+        return view('order.order', [
+            'table_order' => $table_order,
+            'consumables' => $consumables,
+            'categories' => $categories
+        ]);
     }
 }
