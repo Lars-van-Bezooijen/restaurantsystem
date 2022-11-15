@@ -18,10 +18,19 @@ class OrderController extends Controller
         return view('order.table');
     }
 
+    public function tablePost()
+    {
+        $table = Table::where('number', request('table_number'))->first();
+        if ($table) {
+            return redirect()->route('order.order', ['table' => $table->id]);
+        } else {
+            return redirect()->route('order.table')->with('error', 'Ongeldig tafelnummer');
+        }
+    }
+
     public function order($table)
     {
         $table = Table::where('id', $table);
-        dd($table);
         $consumables = Consumable::all();
         return view('order.order');
     }

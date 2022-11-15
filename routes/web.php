@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [OrderController::class, 'scan'])->name('order.scan');
 Route::get('/table', [OrderController::class, 'table'])->name('order.table');
+Route::post('/table', [OrderController::class, 'tablePost'])->name('order.tablePost');
 Route::get('/order/{table}', [OrderController::class, 'order'])->name('order.order');
 
 Route::get('/dashboard', function () {

@@ -45,52 +45,24 @@
 <body>
     <div class="full-size-center">
         <div class="box">
+            @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
+
             <h1>Wat is uw tafel nummer</h1>
 
-
+            <form action="{{ route('order.tablePost') }}" method="POST">
+                @csrf
                 <div class="form-group">
                     <input type="text" name="table_number" id="table_number" class="form-control mid-text">
                 </div>
                 <div class="form-group">
-                    <button id="table_form" class="mid-btn btn btn-primary">Volgende</button>
+                    <button type="submit" id="table_form" class="mid-btn btn btn-primary">Volgende</button>
                 </div>
-
+            </form>
         </div>
     </div>
 </body>
-<script>
-    const isEmpty = str => !str.trim().length;
-    
-    let $table_number =  document.getElementById("table_number");
-    let $table_form = document.getElementById("table_form");
-
-    
-
-    $table_form.addEventListener("click", function(){
-        if(isEmpty($table_form.value))
-        {
-            alert("Vul een tafel nummer in");
-        }
-        else
-        {
-            alert("Tafel nummer is " + $table_number.value);
-        }
-
-
-
-        // let table_number = $table_number.value;
-
-        // var url = '{{ route("order.order", ":table") }}';
-        // url = url.replace(':table', table_number);        
-
-        // window.location.href=url;
-    });
-
-
-    
-
-
-    
-
-</script>
 </html>
