@@ -1,0 +1,36 @@
+.full-size-center{
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ececec;
+}
+.box{
+    min-width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1/1;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+.box.tall{
+    border-radius: 0;
+    display: block;
+    aspect-ratio: none;
+}
+.large-img{
+    width: 175%;
+    transform: translate(-20%, 0);
+}
+.mid-btn{
+    width: 100%;
+    margin-top: 1rem;
+}
+.mid-text{
+    text-align: center;
+}

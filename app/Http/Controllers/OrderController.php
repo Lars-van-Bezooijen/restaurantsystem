@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Table;
 use App\Models\Consumable;
 use Illuminate\Http\Request;
 
@@ -12,12 +13,16 @@ class OrderController extends Controller
         return view('order.scan');
     }
 
-    public function order()
+    public function table()
     {
-        // get all consumables
+        return view('order.table');
+    }
+
+    public function order($table)
+    {
+        $table = Table::where('id', $table);
+        dd($table);
         $consumables = Consumable::all();
-        return view('order.order', [
-            'consumables' => $consumables
-        ]);
+        return view('order.order');
     }
 }
