@@ -15,25 +15,56 @@
             <h1>Maak uw bestelling</h1>
             <p>Order voor tafel {{ $table_order->number }}</p>
 
-            {{-- radio input with categories  --}}
-            <input checked="checked" type="radio" id="all" name="category" value="all">
-            <label for="all">Alles</label>
             @foreach($categories as $category)
-                <input type="radio" id="{{ $category->id }}" name="category" value="{{ $category->id }}">
-                <label for="{{ $category->id }}">{{ $category->name }}</label>
-            @endforeach
-
-            
-            
+                <h2 class="category">{{ $category->name }}</h2>
+                <div class="grid">
+                    @foreach($consumables as $consumable)
+                        @if($consumable->category_id == $category->id)
+                        <div class="grid-item">
+                            <p>{{ $consumable->name }}</p>
+                            <p>&euro;{{ number_format($consumable->price, 2, ",", ".") }}</p>
+                            <p>{{ $consumable->description }}</p>
+                            <button class="add-product" id="add-product">Voeg toe</button>
+                        </div>
+                        @endif
+                    @endforeach
+                </div>
+            @endforeach   
         </div>
     </div>
 </body>
-{{-- <script>
-    // send user to order.order route on radio change
-    document.querySelectorAll('input[name="category"]').forEach((input) => {
-        input.addEventListener('change', (event) => {
-            window.location.href = '/order//' + event.target.value;
-        });
-    });
-</script> --}}
+<script>
+    // Get all the buttons by class
+    var buttons = document.getElementsByClassName("add-product");
+    // add event listener to all the buttons
+    for(var i = 0; buttons.length > i; i++){
+
+    }
+
+
+    // const addProduct = document.getElementById('add-product');
+    // addProduct.addEventListener('click', function() {
+    //     addProduct.classList.add('added');
+    //     addProduct.innerHTML = 'Toegevoegd';
+
+    //     setTimeout(function() {
+    //         addProduct.classList.remove('added');
+    //         addProduct.innerHTML = 'Voeg toe';
+    //     }, 2000);
+    // });
+
+
+    // var addProduct = document.getElementsByClassName("add-product");
+    // for (var i = 0; i < addProduct.length; i++) {
+    //     addProduct[i].addEventListener('click', function() {
+    //         addProduct[i].classList.add('added');
+    //         addProduct[i].innerHTML = 'Toegevoegd';
+
+    //         setTimeout(function() {
+    //             addProduct[i].classList.remove('added');
+    //             addProduct[i].innerHTML = 'Voeg toe';
+    //         }, 2000);
+    //         });
+    // }
+</script>
 </html>

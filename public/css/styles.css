@@ -7,7 +7,7 @@
     background: #ececec;
 }
 .box{
-    min-width: 40%;
+    min-width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,4 +33,33 @@
 }
 .mid-text{
     text-align: center;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+.grid-item{
+    padding: 10px;
+    background-color: rgb(249, 249, 249);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+h2.category{
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.add-product{
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    background-color: #0d6efd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+.added{
+    background-color: rgb(10, 206, 43);
 }
