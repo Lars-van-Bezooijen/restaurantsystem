@@ -18,14 +18,14 @@
             @foreach($categories as $category)
                 <h2 class="category">{{ $category->name }}</h2>
                 <div class="grid">
-                    @foreach($consumables as $consumable)
+                    @foreach($category->consumables as $consumable)
                         @if($consumable->category_id == $category->id)
-                        <div class="grid-item">
-                            <p>{{ $consumable->name }}</p>
-                            <p>&euro;{{ number_format($consumable->price, 2, ",", ".") }}</p>
-                            <p>{{ $consumable->description }}</p>
-                            <button class="add-product" id="add-product">Voeg toe</button>
-                        </div>
+                            <div class="grid-item">
+                                <p>{{ $consumable->name }}</p>
+                                <p>&euro;{{ number_format($consumable->price, 2, ",", ".") }}</p>
+                                <p>{{ $consumable->description }}</p>
+                                <button class="add-product" id="add-product">+</button>
+                            </div>
                         @endif
                     @endforeach
                 </div>

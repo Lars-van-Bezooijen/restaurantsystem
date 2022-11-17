@@ -32,11 +32,9 @@ class OrderController extends Controller
     public function order($table)
     {
         $table_order = Table::find($table);
-        $consumables = Consumable::all();
         $categories = Category::all();
         return view('order.order', [
             'table_order' => $table_order,
-            'consumables' => $consumables,
             'categories' => $categories
         ]);
     }

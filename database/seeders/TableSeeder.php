@@ -18,6 +18,7 @@ class TableSeeder extends Seeder
         for($i = 1; $i <= 25; $i++) {
             Table::create([
                 'number' =>  $i,
+                'amount_seats' => rand(2, 8),
             ]);
         }
     }

@@ -17,7 +17,6 @@ class ConsumableSeeder extends Seeder
     {
         Consumable::create([
             'name' => 'Coca Cola',
-            'description' => 'Coca Cola',
             'is_available' => 1,
             'price' => 2.50,
             'category_id' => 4,
@@ -25,7 +24,6 @@ class ConsumableSeeder extends Seeder
 
         Consumable::create([
             'name' => 'Fanta',
-            'description' => 'Fanta',
             'is_available' => 1,
             'price' => 2.35,
             'category_id' => 4,
@@ -33,7 +31,6 @@ class ConsumableSeeder extends Seeder
 
         Consumable::create([
             'name' => 'Sprite',
-            'description' => 'Sprite',
             'is_available' => 1,
             'price' => 2.10,
             'category_id' => 4,

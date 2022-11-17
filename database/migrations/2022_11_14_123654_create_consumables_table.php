@@ -19,9 +19,9 @@ return new class extends Migration
                 ->references('id')
                 ->on('categories');
             $table->string('name');
-            $table->string('description');
-            $table->double('price');
-            $table->boolean('is_available');
+            $table->string('description')->nullable();
+            $table->decimal('price', 5, 2);
+            $table->boolean('is_available')->default(true);
             $table->timestamps();
         });
     }

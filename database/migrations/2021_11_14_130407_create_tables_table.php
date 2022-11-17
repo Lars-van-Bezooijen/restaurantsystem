@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('tables', function (Blueprint $table) {
             $table->id();
-            $table->string('number');
+            $table->string('number')->unique();
+            $table->integer('amount_seats')->nullable();
             $table->timestamps();
         });
     }

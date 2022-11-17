@@ -16,13 +16,13 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category::create([
-            'name' => 'Voorgerecht',
+            'name' => 'Voorgerechten',
         ]);
         Category::create([
-            'name' => 'Hoofdgerecht',
+            'name' => 'Hoofdgerechten',
         ]);
         Category::create([
-            'name' => 'Nagerecht',
+            'name' => 'Nagerechten',
         ]);
         Category::create([
             'name' => 'Drinken',

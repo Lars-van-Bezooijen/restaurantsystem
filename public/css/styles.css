@@ -63,3 +63,13 @@ h2.category{
 .added{
     background-color: rgb(10, 206, 43);
 }
+
+@media(max-width: 768px){
+    .grid{
+        grid-template-columns: 1fr;
+    }
+    .large-img{
+        width: 100%;
+        transform: translate(0, 0);
+    }
+}
