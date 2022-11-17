@@ -13,7 +13,6 @@
     <div class="full-size-center">
         <div class="box tall">
             <h1>Maak uw bestelling</h1>
-            <p>Order voor tafel {{ $table_order->number }}</p>
 
             @foreach($categories as $category)
                 <h2 class="category">{{ $category->name }}</h2>
@@ -38,6 +37,7 @@
             @endforeach
             
             <h1 class="list">Uw bestel lijst</h1>
+            <p>Bestelling voor tafel {{ $table_order->number }}</p>
 
         </div>
     </div>
