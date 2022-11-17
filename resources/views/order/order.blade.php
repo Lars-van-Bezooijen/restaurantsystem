@@ -21,50 +21,25 @@
                     @foreach($category->consumables as $consumable)
                         @if($consumable->category_id == $category->id)
                             <div class="grid-item">
-                                <p>{{ $consumable->name }}</p>
-                                <p>&euro;{{ number_format($consumable->price, 2, ",", ".") }}</p>
-                                <p>{{ $consumable->description }}</p>
-                                <button class="add-product" id="add-product">+</button>
+                                <div class="product-top">
+                                    <div class="product-flex">
+                                        <p class="product-name">{{ $consumable->name }}</p>
+                                    </div>
+                                    <div class="product-flex">
+                                        <p class="product-price">&euro;{{ number_format($consumable->price, 2, ",", ".") }}</p>
+                                        <button class="add-product" id="add-product">+</button>
+                                    </div>
+                                </div>
+                                <p class="product-description">{{ $consumable->description }}</p>
                             </div>
                         @endif
                     @endforeach
                 </div>
-            @endforeach   
+            @endforeach
+            
+            <h1 class="list">Uw bestel lijst</h1>
+
         </div>
     </div>
 </body>
-<script>
-    // Get all the buttons by class
-    var buttons = document.getElementsByClassName("add-product");
-    // add event listener to all the buttons
-    for(var i = 0; buttons.length > i; i++){
-
-    }
-
-
-    // const addProduct = document.getElementById('add-product');
-    // addProduct.addEventListener('click', function() {
-    //     addProduct.classList.add('added');
-    //     addProduct.innerHTML = 'Toegevoegd';
-
-    //     setTimeout(function() {
-    //         addProduct.classList.remove('added');
-    //         addProduct.innerHTML = 'Voeg toe';
-    //     }, 2000);
-    // });
-
-
-    // var addProduct = document.getElementsByClassName("add-product");
-    // for (var i = 0; i < addProduct.length; i++) {
-    //     addProduct[i].addEventListener('click', function() {
-    //         addProduct[i].classList.add('added');
-    //         addProduct[i].innerHTML = 'Toegevoegd';
-
-    //         setTimeout(function() {
-    //             addProduct[i].classList.remove('added');
-    //             addProduct[i].innerHTML = 'Voeg toe';
-    //         }, 2000);
-    //         });
-    // }
-</script>
 </html>
