@@ -31,11 +31,21 @@ class OrderController extends Controller
 
     public function order($table)
     {
+        $consumableCount = Consumable::count();
         $table_order = Table::find($table);
         $categories = Category::all();
         return view('order.order', [
             'table_order' => $table_order,
-            'categories' => $categories
+            'categories' => $categories,
+            'consumableCount' => $consumableCount
         ]);
+    }
+
+    public function store(Request $request)
+    {
+        dd($request->all());
+        // $table_order = Table::find($table);
+        // $table_order->consumables()->sync(request('consumables'));
+        // return redirect()->route('order.scan')->with('success', 'Bestelling is geplaatst');
     }
 }

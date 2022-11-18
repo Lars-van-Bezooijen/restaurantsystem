@@ -26,7 +26,7 @@
                                     </div>
                                     <div class="product-flex">
                                         <p class="product-price">&euro;{{ number_format($consumable->price, 2, ",", ".") }}</p>
-                                        <button class="add-product" id="add-product">+</button>
+                                        <button id="addBtn-{{$consumable->id}}" class="add-product" id="add-product">+</button>
                                     </div>
                                 </div>
                                 <p class="product-description">{{ $consumable->description }}</p>
@@ -36,10 +36,41 @@
                 </div>
             @endforeach
             
-            <h1 class="list">Uw bestel lijst</h1>
-            <p>Bestelling voor tafel {{ $table_order->number }}</p>
+            <section>
+                <h1 class="list">Uw bestellijst</h1>
+                <p>Bestelling voor tafel {{ $table_order->number }}</p>
+                <div class="alert alert-warning">
+                    <p class="m-0">U heeft nog niks in uw bestelling</p>
+                </div>
+                <form action="{{ route('order.store') }}" method="POST">
+                    @csrf
+                    <div  id="inputCollection" class="form-group">
+                        <input type="hidden" name="table_id" value="{{ $table_order->id }}">
+                    </div>
+                    <div class="form-group">
+                        {{-- add disabled on default if 0 products --}}
+                        <button class="btn btn-primary" type="text" type="submit">Bestelling afronden</button>
+                    </div>
+                </form>
+            </section>
 
         </div>
     </div>
+
+    <script>
+
+        for(let i = 1; i <= {{$consumableCount}}; i++) {
+            document.getElementById("addBtn-" + i)
+                .addEventListener("click", function(e ) {
+                    let name = e.path[2].children[0].textContent;
+                    console.log(e.path[2].children[1].children[0].textContent);
+                    document.getElementById("inputCollection")
+                    .innerHTML += `
+                        <input class="form-control" type="text" disabled id="" value="${name}">
+                        <input class="form-control" name="consumable[]" type="hidden" id="" value="${i}">
+                    `;
+                });
+        }
+    </script>
 </body>
 </html>
