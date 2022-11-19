@@ -62,8 +62,8 @@
         for(let i = 1; i <= {{$consumableCount}}; i++) {
             document.getElementById("addBtn-" + i)
                 .addEventListener("click", function(e ) {
-                    let name = e.path[2].children[0].textContent;
-                    console.log(e.path[2].children[1].children[0].textContent);
+                    let name = e.composedPath()[2].children[0].textContent;
+                    // console.log(e.composedPath()[2].children[1].children[0].textContent);
                     document.getElementById("inputCollection")
                     .innerHTML += `
                         <input class="form-control" type="text" disabled id="" value="${name}">
